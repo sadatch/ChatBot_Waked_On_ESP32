@@ -1,0 +1,2 @@
+# ChatBot_Waked_On_ESP32
+esp32を使ってチャットbotを作ることを目的とした個人制作物です
