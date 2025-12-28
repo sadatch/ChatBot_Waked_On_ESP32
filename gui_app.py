@@ -14,7 +14,7 @@ import speech_recognition as sr
 from pydub import AudioSegment
 
 # --- 設定部分 ---
-# 【修正1】APIキーはここには書かず、docker-compose.yml から読み込みます
+
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 
 if not GOOGLE_API_KEY:
@@ -31,7 +31,7 @@ page_reference = None
 def update_status(text):
     if page_reference:
         try:
-            # 【修正2】sent_all ではなく send_all です
+            
             page_reference.pubsub.send_all({"type": "status", "text": text})
         except Exception as e:
             print(f"GUI update error: {e}")
