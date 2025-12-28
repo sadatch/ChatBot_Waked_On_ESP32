@@ -1,0 +1,24 @@
+services:
+  # Pythonアプリ
+  chatbot-app:
+    build: .
+    container_name: chatbot-app
+    ports:
+      - "5000:5000"  # ESP32用
+      - "8550:8550"  # ブラウザ画面用
+    volumes:
+      - .:/app
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    depends_on:
+      - voicevox-engine
+    restart: always
+
+  # VOICEVOXエンジン
+  voicevox-engine:
+    image: voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+    container_name: voicevox-engine
+    ports:
+      - "50021:50021"
+    command: ["--host", "0.0.0.0"]
+    restart: always

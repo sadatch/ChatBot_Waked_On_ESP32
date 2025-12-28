@@ -1,0 +1,7 @@
+flask
+google-generativeai
+SpeechRecognition
+pydub
+flet
+requests
+gunicorn
