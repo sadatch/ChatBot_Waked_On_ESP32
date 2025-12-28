@@ -1,24 +1,24 @@
-Python cache
+#Python cache
 
 __pycache__/
 *.pyc
 
-System files
+#System files
 
 .DS_Store
 Thumbs.db
 
-Virtual environments
+#Virtual environments
 
 .venv/
 venv/
 env/
 
-Docker mount data
+#Docker mount data
 
 data/
 
-Audio output files (音声ログを除外)
+#Audio output files (音声ログを除外)
 
 input.wav
 output.wav
