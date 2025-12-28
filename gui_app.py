@@ -39,7 +39,7 @@ def update_status(text):
 def add_chat_message(user, text):
     if page_reference:
         try:
-            # 【修正3】page.reference ではなく page_reference です
+            
             page_reference.pubsub.send_all({"type": "chat", "user": user, "text": text})
         except Exception as e:
             print(f"GUI update error: {e}")
