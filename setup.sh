@@ -120,6 +120,11 @@ import requests
 import json
 import threading
 from datetime import datetime
+import warnings
+
+# 警告メッセージを非表示にする設定
+warnings.filterwarnings("ignore")
+
 import flet as ft
 from flask import Flask, request, send_file
 import google.generativeai as genai
@@ -224,7 +229,8 @@ def main(page: ft.Page):
 if __name__ == "__main__":
     flask_thread = threading.Thread(target=run_flask, daemon=True)
     flask_thread.start()
-    ft.app(target=main, view=ft.WEB_BROWSER, port=8550, host="0.0.0.0")
+    # 【修正】最新のFletに対応するため ft.AppView.WEB_BROWSER に変更
+    ft.app(target=main, view=ft.AppView.WEB_BROWSER, port=8550, host="0.0.0.0")
 EOF
 
 echo "✅ ファイルの生成が完了しました。"
